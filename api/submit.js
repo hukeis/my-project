@@ -1,3 +1,12 @@
+import mysql from 'mysql2/promise';
+
+const db = mysql.createPool({
+    host: 'localhost',      // 替换为您的数据库地址
+    user: 'root',           // 数据库用户名
+    password: '123456',   // 数据库密码
+    database: 'park_db'     // 数据库名称
+});
+
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ message: '仅支持 POST 请求' });
@@ -10,13 +19,12 @@ export default async function handler(req, res) {
     }
 
     try {
-        // 模拟存储数据，可以扩展为实际数据库存储逻辑
-        console.log('问题描述:', description);
-        console.log('联系方式:', contact);
+        // 插入数据到数据库
+        await db.query('INSERT INTO reports (description, contact) VALUES (?, ?)', [description, contact]);
 
         return res.status(200).json({ message: '提交成功！' });
     } catch (error) {
-        console.error('提交失败:', error);
+        console.error('数据库错误:', error);
         return res.status(500).json({ message: '服务器错误，请稍后重试！' });
     }
 }
