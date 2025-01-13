@@ -9,22 +9,16 @@
 <body>
   <div class="container">
     <h1>问题报告系统</h1>
-
-    <!-- 视频播放区域 -->
-    <div class="video-container">
-      <h3>查看相关视频：</h3>
-      <video controls width="640">
-        <source src="assets/sample-video.mp4" type="video/mp4">
-        您的浏览器不支持视频播放，请升级浏览器。
-      </video>
-    </div>
-
-    <!-- 表单提交区域 -->
+    <video controls>
+      <source src="assets/sample-video.mp4" type="video/mp4">
+      您的浏览器不支持视频播放。
+    </video>
     <form id="reportForm">
-      <h3>提交问题报告：</h3>
-      <textarea name="description" placeholder="请描述问题..." required></textarea>
-      <input type="text" name="contact" placeholder="您的联系方式（可选）">
-      <button type="submit">提交报告</button>
+      <label for="description">问题描述：</label>
+      <textarea id="description" name="description" rows="4" placeholder="请输入问题描述"></textarea>
+      <label for="contact">联系方式：</label>
+      <input id="contact" name="contact" type="text" placeholder="请输入您的联系方式">
+      <button type="submit">提交</button>
     </form>
   </div>
   <script src="script.js"></script>
