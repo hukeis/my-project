@@ -12,8 +12,8 @@ form.addEventListener('submit', async (e) => {
   };
 
   try {
-    // 发送数据到后端 API
-    const response = await fetch('https://my-project-l4ue.vercel.app/api/report', { // 替换为你的 Vercel 部署地址
+    // 发送数据到后端
+    const response = await fetch('http://192.168.10.95:3000/api/report', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

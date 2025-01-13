@@ -17,7 +17,7 @@
     // 获取问题数据
     async function fetchReports() {
       try {
-        const response = await fetch('https://my-project-l4ue.vercel.app/api/reports'); // 替换为你的 Vercel 部署地址
+        const response = await fetch('http://localhost:3000/api/reports');
         if (response.ok) {
           const reports = await response.json();
           renderReports(reports);
